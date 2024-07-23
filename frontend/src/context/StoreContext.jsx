@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import { food_list } from "../assets/assets";
 
 export const StoreContext = createContext(null);
@@ -16,6 +16,7 @@ const StoreContextProvider = (props) => {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => {
       if (prev[itemId] === 1) {
+        // eslint-disable-next-line no-unused-vars
         const { [itemId]: _, ...newState } = prev;
         return newState;
       } else {
@@ -30,9 +31,9 @@ const StoreContextProvider = (props) => {
     let totalAmount = 0;
     for (const item in cardItems) {
       {
-        if (cartItems[item] > 0) {
+        if (cardItems[item] > 0) {
           let itemInfo = food_list.find((product) => product._id === item);
-          totalAmount += itemInfo.price * cartItems[item];
+          totalAmount += itemInfo.price * cardItems[item];
         }
       }
     }

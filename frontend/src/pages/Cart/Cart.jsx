@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
 
@@ -20,9 +20,9 @@ const Cart = () => {
         <br />
         <hr />
         {food_list.map((item, index) => {
-          if (cartItems[item._id] > 0) {
+          if (cartItems && cartItems[item._id] > 0) {
             return (
-              <div>
+              <div key={index}>
                 <div className="cart-items-title cart-items-item">
                   <img src={item.image} alt="" />
                   <p>{item.name}</p>
