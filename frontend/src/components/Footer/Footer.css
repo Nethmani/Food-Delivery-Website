@@ -7,7 +7,7 @@
   gap: 20px;
   padding: 20px 8vw;
   padding-top: 80px;
-  margin-top: 100%;
+  margin-top: 10%;
 }
 
 .footer-content {
@@ -36,6 +36,9 @@
 .footer-content-right h2,
 .footer-content-center h2 {
   color: white;
+}
+.footer-content-left img {
+  width: 60%;
 }
 
 .footer-social-icons img {
