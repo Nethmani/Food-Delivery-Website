@@ -5,6 +5,7 @@ import foodRouter from "./routes/foodRouter.js";
 
 import "dotenv/config";
 import userRouter from "./routes/userRouter.js";
+import cartRouter from "./routes/cartRouter.js";
 
 //app config
 const app = express();
@@ -21,6 +22,7 @@ connectDB();
 app.use("/api/food", foodRouter);
 app.use("/images", express.static("uploads"));
 app.use("/api/user", userRouter);
+app.use("/api/cart", cartRouter);
 
 app.get("/", (req, res) => {
   res.send("API Working");

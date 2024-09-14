@@ -71,9 +71,7 @@ const Navbar = ({ setShowLogin }) => {
               </li>
               <hr />
               <li>
-                {" "}
-                onClick={logout}
-                <img src={assets.logout_icon} alt="" />
+                <img src={assets.logout_icon} alt="" onClick={() => logout()} />
                 <p>Logout</p>
               </li>
             </ul>
