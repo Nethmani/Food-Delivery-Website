@@ -41,6 +41,7 @@ const Add = ({ url }) => {
       toast.error(response.data.message);
     }
   };
+
   return (
     <div className="add">
       <form className="flex-col" onSubmit={onSubmitHandler}>
@@ -84,7 +85,11 @@ const Add = ({ url }) => {
         <div className="add-category-price">
           <div className="add-category flex-col">
             <p>Product category</p>
-            <select name="category">
+            <select
+              name="category"
+              value={data.category} // Bind the value to state
+              onChange={onChangeHandler} // Handle changes
+            >
               <option value="Salad">Salad</option>
               <option value="Rolls">Rolls</option>
               <option value="Deserts">Deserts</option>
@@ -103,7 +108,7 @@ const Add = ({ url }) => {
               type="Number"
               name="price"
               placeholder="$20"
-            ></input>
+            />
           </div>
         </div>
         <button type="submit" className="add-btn">
