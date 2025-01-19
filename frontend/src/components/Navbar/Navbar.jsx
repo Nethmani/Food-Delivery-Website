@@ -7,6 +7,7 @@ import { StoreContext } from "../../context/StoreContext";
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("menu");
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -63,18 +64,25 @@ const Navbar = ({ setShowLogin }) => {
           <button onClick={() => setShowLogin(true)}>Sign in</button>
         ) : (
           <div className="nav-profile-dropdown">
-            <img src={assets.profile_icon} alt="" />
-            <ul className="nav-profile-dropdown-list">
-              <li>
-                <img src={assets.bag_icon} alt="" />
-                <p>Order</p>
-              </li>
-              <hr />
-              <li>
-                <img src={assets.logout_icon} alt="" onClick={() => logout()} />
-                <p>Logout</p>
-              </li>
-            </ul>
+            <img
+              className="profile-icon"
+              src={assets.profile_icon}
+              alt=""
+              onClick={() => setIsProfileOpen(!isProfileOpen)}
+            />
+            {isProfileOpen && (
+              <ul className="nav-profile-dropdown-list">
+                <li onClick={() => navigate("/myorders")}>
+                  <img src={assets.bag_icon} alt="" />
+                  <p>Order</p>
+                </li>
+                <hr />
+                <li onClick={() => logout()}>
+                  <img src={assets.logout_icon} alt="" />
+                  <p>Logout</p>
+                </li>
+              </ul>
+            )}
           </div>
         )}
       </div>
